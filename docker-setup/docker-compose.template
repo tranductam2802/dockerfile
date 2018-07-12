@@ -1,0 +1,25 @@
+version: '3'
+services:
+    ${MASTER_HOSTNAME}:
+        build: .
+        image: ${DOCKER_IMAGE_NAME}
+        hostname: '${MASTER_HOSTNAME}'
+        user: ${CONTAINER_USER_NAME}
+        volumes:
+            - ${MASTER_YOUR_PROJECT_NAME}:/mnt/src/your_project_name:z
+        expose:
+            - 22
+        ports:
+            - "${MASTER_SSH_PORT}:22"
+        working_dir: /home/${CONTAINER_USER_NAME}
+        command: /startup.sh ${CONTAINER_USER_NAME} ${MASTER_HOSTNAME}
+        deploy:
+            resources:
+                limits:
+                    cpus: '${MASTER_MAX_CPU}'
+                    memory: ${MASTER_MAX_MEM}
+                reservations:
+                    cpus: '${MASTER_MIN_CPU}'
+                    memory: ${MASTER_MIN_MEM}
+        stdin_open: true
+        tty: true

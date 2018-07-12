@@ -1,0 +1,17 @@
+.idea
+__MACOSX
+*.DS_Store
+*.swp
+*~
+*#
+[Dd]esktop.ini
+[Tt]humbs.db
+
+share/*
+!share/.gitkeep
+
+config.local.sh
+docker-setup/docker-compose.yml
+docker-setup/authorized_keys
+docker-setup/ssh_key
+docker-setup/ssh_key.pub
