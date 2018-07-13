@@ -6,7 +6,7 @@ services:
         hostname: '${MASTER_HOSTNAME}'
         user: ${CONTAINER_USER_NAME}
         volumes:
-            - ${MASTER_YOUR_PROJECT_NAME}:/mnt/src/your_project_name:z
+            - ${MASTER_DEMO}:/mnt/src/demo_project:z
         expose:
             - 22
         ports:
