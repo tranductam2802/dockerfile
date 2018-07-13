@@ -12,8 +12,8 @@ ENV http_proxy=${HTTP_PROXY}
 ENV https_proxy=${HTTPS_PROXY}
 
 # User
-ARG CONTAINER_USER_NAME=your_username
-ARG CONTAINER_PASSWORD=your_password
+ARG CONTAINER_USER_NAME=demo_username
+ARG CONTAINER_PASSWORD=demo_password
 
 # UID/GID
 ARG CONTAINER_UID=1001
@@ -147,7 +147,7 @@ RUN chmod 0700 /home/${CONTAINER_USER_NAME}/.ssh
 RUN sudo mkdir -p /mnt/src
 RUN sudo chown ${CONTAINER_USER_NAME}:${CONTAINER_GID} /mnt/src
 RUN sudo ln -s /mnt/src/supervisor /var/log/supervisor/
-RUN ln -s /mnt/src/your_project_name /home/${CONTAINER_USER_NAME}/your_project_name
+RUN ln -s /mnt/src/demo_project /home/${CONTAINER_USER_NAME}/demo_project
 
 # Called on first run of docker - will run supervisor
 COPY startup.sh /startup.sh
